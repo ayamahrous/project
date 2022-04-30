@@ -1,4 +1,4 @@
-open_proj vend.xpr
+open_proj project_1.xpr
  
 set run_name impl_1
 set cpu_count 1
