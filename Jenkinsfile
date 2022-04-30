@@ -40,24 +40,6 @@ stage('Run simulation') {
         bat "cd vivado && C:/Xilinx/Vivado/2019.1/settings64.bat && vivado -mode batch -source generate_bitstream.tcl"
       }
     }
-    stage('Release bitfile') {
-      steps {
-        bat '''
-        PROJ_NAME=vend
-        RELEASE_DIR=/usr/share/nginx/html/releases/
- 
-        BASE_NAME=$PROJ_NAME-`date +"%Y-%m-%d-%H-%H:%M"`
-        BITFILE=$BASE_NAME.bit
-        INFOFILE=$BASE_NAME.txt
- 
-        git log -n 1 --pretty=format:"%H" >> $INFOFILE
-        echo -n " $PROJ_NAME " >> $INFOFILE
-        git describe --all >> $INFOFILE
 
-        cp $INFOFILE $RELEASE_DIR
-        cp vivado/vend.runs/impl_1/top.bit $RELEASE_DIR/$BITFILE
-        '''
-      }
-    }
   }
 }
