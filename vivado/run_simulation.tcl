@@ -1,6 +1,6 @@
-open_proj vend.xpr
+open_proj project_1.xpr
  
-set sim_fileset vend_tb
+set sim_fileset sim_1
  
 launch_simulation -simset [get_filesets $sim_fileset]
 close_sim
